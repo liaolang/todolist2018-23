@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sanchez">
+  </head>
+  <body>
+    <header class="header">
+      <img class="logo" src="images/logo.png" width="70">
+      <h1>My Tasks</h1>
+    </header>
+    <main>
+      <div class="settings-panel">
+        <form id="settings"></form>
+      </div>
+      <ul id="task-list"></ul>
+    </main>
+    <footer>
+      <form class="row" id="task-form">
+        <input id="task-input" type="text" placeholder="Type some things here" required>
+        <button type="submit" id="task-button" icon="add">[+]</button>
+      </form>
+    </footer>
+    <script src="js/main.js"></script>
+    <!-- template buttons-->
+    <template id="task-template">
+      <li data-id="" data-name="" data-status="">
+        <div class="task-row">
+          <p class="task-text"></p>
+          <div class="buttons">
+            <button class="task-action" data-function="status"></button>
+            <button class="task-action" data-function="delete"></button>
+          </div>
+        </div>
+      </li>
+    </template>
+  </body>
+</html>

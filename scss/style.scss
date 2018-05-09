@@ -1,14 +1,13 @@
-$main-color: hsl(32, 82%, 72%);
-$header-bg: darken($main-color, 18%);
-$main-font: 'Sanchez', serif;
-$main-font-size:19px;
-$full-height: 100vh;
+$main-color: hsl(36, 67%, 66%);
+$header-bg: darken($main-color, 28%);
+$main-font: 'Skranji', serif;
 
-$header-height: 50px;
+$main-font-size:26px;
+$full-height: 100vh;
+$header-height: 60px;
 
 @mixin header-padding(){
-  padding:10px 10px;
-  @include box;
+  padding:15px 20px;
 }
 $content-height: calc($fullheight - #{$header-height});
 @mixin box(){
@@ -39,28 +38,31 @@ body{
   @include reset;
   font-family:$main-font;
   font-size: $main-font-size;
-  overflow: hidden;
+    background-image:-webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0, rgb(255, 254, 251)),
+        color-stop(0.51, rgb(221, 187, 142))
+    );
 }
+
 header{
   height: $header-height;
   background-color:$header-bg;
   @include row;
   h1,h2,h3{
     @include reset;
-    font-size:20px;
+    font-size:24px;
+    font-weight:normal;
+    margin:0px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+    color: antiquewhite;
      @include header-padding;
   }
-  .settings-button{
-    width:48px;
-    height:48px;
-    background-color:transparent;
-    border:solid transparent;
-    .stripe{
-      height:2px;
-      margin:8px 0;
-      background-color:darken($main-color,30%);
-    }
-  }
+   
   .settings-button:focus{
     outline:none;
   }
@@ -75,35 +77,16 @@ main{
   height: calc(100vh - (#{$header-height} * 2));
   overflow-x:hidden;
   overflow-y:auto;
-  .settings-panel{
-    position:absolute;
-    left: -100vw;
-    transition:left 1s;
-    top:$header-height;
-    z-index:999;
-    background-color:white;
-    width:80vw;
-    box-shadow:5px 5px 8px rgba(0,0,0,0.5);
-    min-height:calc(100vh - (#{$header-height}));
-    #settings{
-      max-width:80%;
-      margin:0 auto;
-    }
-  }
-  .settings-panel.open{
-    top:$header-height;
-    left:0;
-  }
 }
 
 #task-list{
   @include reset;
   list-style:none;
   li{
-    font-size:20px;
-    padding-left:10px;
-    border-bottom: 1px solid #ccc;
-    color:darken($main-color,40%);
+    font-size:22px;
+    padding-left:15px;
+    border-bottom: 1px solid rgb(184, 158, 29);
+    color:darken($main-color,10%);
   }
   li[data-status="1"]{
     background-color:lighten($main-color,15%);
@@ -117,32 +100,32 @@ main{
     .task-row{
       display:flex;
       justify-content:space-between;
-      .task-text{
-        word-wrap:break-word;
-        max-width:70vw;
-      }
+
       .buttons{
-        width:100px;
+        width:150px;
         display:flex;
-        opacity:0.4;
+        opacity:0.65;
         button{
-          width:50%;
+          width:55%;
           background-color:transparent;
           border:solid transparent;
-          background-size:50%;
+          background-size:55%;
           background-repeat:no-repeat;
           background-position:center;
         }
         button[data-function="status"]{
           background-image:url('../images/check.png');
+          background-size:155%;
+          height:114%;
+          width: 40%;
         }
         button[data-function="delete"]{
           background-image:url('../images/times.png');
+          
         }
       }
     }
   }
-    
 }
 
 footer{
@@ -151,19 +134,20 @@ footer{
   #task-form{
     @include row;
     #task-input{
-      padding:10px;
+      padding:12px;
       font-size: $input-font-size;
-      color: $input-color;
-      border:1px solid $input-color;
+      border:0.8px solid $input-color;
       flex:1;
     }
     #task-input:focus{
-      outline:none;
+      outline-style: auto;
+      outline-color: rgb(255, 86, 86);
     }
     #task-button{
-      width: $header-height + 10;
-      height:48px;
+      width: $header-height + 15;
+      height:50px;
       font-size: $input-font-size * 0.75;
+      background-color:rgb(243, 237, 220);
     }
   }
 }
