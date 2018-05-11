@@ -1,7 +1,6 @@
 $main-color: hsl(36, 67%, 66%);
 $header-bg: darken($main-color, 28%);
 $main-font: 'Skranji', serif;
-
 $main-font-size:26px;
 $full-height: 100vh;
 $header-height: 60px;
@@ -43,11 +42,12 @@ body{
         left top,
         left bottom,
         color-stop(0, rgb(255, 254, 251)),
-        color-stop(0.51, rgb(221, 187, 142))
+        color-stop(0.51, rgb(212, 179, 136))
     );
 }
 
 header{
+  box-shadow: 0px 7px 12px rgb(126, 126, 126);
   height: $header-height;
   background-color:$header-bg;
   @include row;
@@ -60,6 +60,7 @@ header{
     padding:0px;
     text-align:center;
     color: antiquewhite;
+    text-shadow: 2px 2px 5px black;
      @include header-padding;
   }
    
@@ -82,16 +83,21 @@ main{
 #task-list{
   @include reset;
   list-style:none;
+  padding-top: 20px;
   li{
-    font-size:22px;
-    padding-left:15px;
+    font-size:20px;
+    padding-left:13px;
     border-bottom: 1px solid rgb(184, 158, 29);
-    color:darken($main-color,10%);
+    color:darken($main-color,49%);   
+    border: 5px solid rgb(228, 92, 92);
+    border-radius: 25px;
   }
   li[data-status="1"]{
+    border: 2px solid #73AD21;
+    border-radius: 25px;
     background-color:lighten($main-color,15%);
     text-decoration:line-through;
-    color:darken($main-color,40%);
+    color:darken($main-color,20%);
     button[data-function="status"]{
       opacity:0.2;
     }
@@ -100,24 +106,26 @@ main{
     .task-row{
       display:flex;
       justify-content:space-between;
-
+      
       .buttons{
         width:150px;
         display:flex;
         opacity:0.65;
         button{
+         
           width:55%;
           background-color:transparent;
           border:solid transparent;
-          background-size:55%;
+          background-size:45%;
           background-repeat:no-repeat;
           background-position:center;
         }
         button[data-function="status"]{
           background-image:url('../images/check.png');
-          background-size:155%;
-          height:114%;
+          background-size:115%;
+          height:14%;
           width: 40%;
+          padding: 30px;
         }
         button[data-function="delete"]{
           background-image:url('../images/times.png');
@@ -137,17 +145,21 @@ footer{
       padding:12px;
       font-size: $input-font-size;
       border:0.8px solid $input-color;
+      border-radius: 7px;
       flex:1;
     }
     #task-input:focus{
-      outline-style: auto;
+     //outline-style: auto;
       outline-color: rgb(255, 86, 86);
+      border-left:5px solid rgb(255, 131, 30);
+      background:linen;
     }
     #task-button{
       width: $header-height + 15;
       height:50px;
       font-size: $input-font-size * 0.75;
-      background-color:rgb(243, 237, 220);
+      background-color:#4CAF50; ;
+      border-radius: 7px;
     }
   }
 }
