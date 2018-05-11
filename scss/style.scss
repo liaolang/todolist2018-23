@@ -150,9 +150,9 @@ footer{
     }
     #task-input:focus{
      //outline-style: auto;
-      outline-color: rgb(255, 86, 86);
+      outline-color: rgb(255, 117, 117);
       border-left:5px solid rgb(255, 131, 30);
-      background:linen;
+      background:rgb(252, 240, 228);
     }
     #task-button{
       width: $header-height + 15;
